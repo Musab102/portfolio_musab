@@ -3,7 +3,7 @@ User-agent: *
 Allow: /
 
 # Sitemaps
-Sitemap: https://musabbinmukhtar.com/sitemap.xml
+Sitemap: https://musab-6r8y.vercel.app/sitemap.xml
 
 # Crawl-delay
 Crawl-delay: 1

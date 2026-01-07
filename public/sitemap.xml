@@ -6,32 +6,32 @@
   
   <!-- Homepage / About -->
   <url>
-    <loc>https://musabbinmukhtar.com/</loc>
-    <lastmod>2026-01-06</lastmod>
+    <loc>https://musab-6r8y.vercel.app/</loc>
+    <lastmod>2026-01-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   
   <!-- Expertise Page -->
   <url>
-    <loc>https://musabbinmukhtar.com/expertise</loc>
-    <lastmod>2026-01-06</lastmod>
+    <loc>https://musab-6r8y.vercel.app/expertise</loc>
+    <lastmod>2026-01-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   
   <!-- Resume Page -->
   <url>
-    <loc>https://musabbinmukhtar.com/resume</loc>
-    <lastmod>2026-01-06</lastmod>
+    <loc>https://musab-6r8y.vercel.app/resume</loc>
+    <lastmod>2026-01-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   
   <!-- Contact Page -->
   <url>
-    <loc>https://musabbinmukhtar.com/contact</loc>
-    <lastmod>2026-01-06</lastmod>
+    <loc>https://musab-6r8y.vercel.app/contact</loc>
+    <lastmod>2026-01-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
