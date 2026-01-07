@@ -17,25 +17,62 @@ const PageLoader = () => (
   </div>
 );
 
+// Error Boundary Component
+class ErrorBoundary extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { hasError: false };
+  }
+
+  static getDerivedStateFromError(error) {
+    return { hasError: true };
+  }
+
+  componentDidCatch(error, errorInfo) {
+    console.error("Layout Error:", error, errorInfo);
+  }
+
+  render() {
+    if (this.state.hasError) {
+      return (
+        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', height: '100vh', color: '#fff', textAlign: 'center' }}>
+          <h2>Something went wrong.</h2>
+          <button
+            onClick={() => window.location.reload()}
+            style={{ marginTop: '20px', padding: '10px 20px', backgroundColor: '#64FFDA', border: 'none', borderRadius: '5px', cursor: 'pointer' }}
+          >
+            Reload Page
+          </button>
+        </div>
+      );
+    }
+
+    return this.props.children;
+  }
+}
+
 function App() {
   return (
     <HelmetProvider>
       <Router>
-        <Suspense fallback={<PageLoader />}>
-          <Routes>
-            <Route path="/" element={<Layout />}>
-              <Route index element={<AboutPage />} />
-              <Route path="expertise" element={<ExpertisePage />} />
-              <Route path="resume" element={<ResumePage />} />
-              <Route path="contact" element={<ContactPage />} />
-            </Route>
-          </Routes>
-        </Suspense>
+        <ErrorBoundary>
+          <Suspense fallback={<PageLoader />}>
+            <Routes>
+              <Route path="/" element={<Layout />}>
+                <Route index element={<AboutPage />} />
+                <Route path="expertise" element={<ExpertisePage />} />
+                <Route path="resume" element={<ResumePage />} />
+                <Route path="contact" element={<ContactPage />} />
+              </Route>
+            </Routes>
+          </Suspense>
+        </ErrorBoundary>
       </Router>
     </HelmetProvider>
   )
 }
 
 export default App
+
 
 
