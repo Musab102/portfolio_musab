@@ -1,0 +1,1101 @@
+.app-container {
+    display: flex;
+    min-height: 100vh;
+    background-color: var(--bg-dark);
+    color: var(--text-primary);
+    padding: 20px;
+    gap: 30px;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+/* Sidebar Styles */
+.sidebar {
+    width: 280px;
+    background-color: var(--card-dark);
+    border-radius: 20px;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: calc(100vh - 40px);
+    position: sticky;
+    top: 20px;
+    flex-shrink: 0;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+.profile-card {
+    text-align: center;
+    margin-bottom: 30px;
+    width: 100%;
+}
+
+.avatar-container {
+    position: relative;
+    width: 120px;
+    height: 120px;
+    margin: 0 auto 20px;
+    background-color: #333;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.avatar-placeholder img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.online-status {
+    position: absolute;
+    bottom: 10px;
+    right: -5px;
+    width: 15px;
+    height: 15px;
+    background-color: var(--accent-green);
+    border-radius: 50%;
+    border: 2px solid var(--card-dark);
+}
+
+.profile-name {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.profile-role {
+    background-color: #2a2a2a;
+    padding: 8px 16px;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    display: inline-block;
+}
+
+.store-links {
+    display: flex;
+    gap: 15px;
+}
+
+.store-links {
+    display: flex;
+    gap: 15px;
+}
+
+.store-links a {
+    background-color: #2a2a2a;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-size: 1.1rem;
+    transition: transform 0.2s;
+}
+
+.store-links a.app-store {
+    color: #007aff;
+    /* iOS Blue */
+}
+
+.store-links a.play-store {
+    color: #00c853;
+    /* Android Green-ish or keep plain if icon is colored */
+    /* If using React Icons causing single color, maybe set color directly */
+}
+
+/* Actually, let's use specific classes if possible, or nth-child? 
+   Better to stick to simple colors or utility classes if I can edit JSX.
+   For now, I'll assume the icons themselves might need color classes in JSX.
+   Let's just make the background dark and icons white/colored.
+*/
+.store-links a:hover {
+    background-color: #333;
+    transform: scale(1.1);
+}
+
+.internal-badge {
+    background-color: rgba(255, 215, 0, 0.15);
+    /* Yellow tint */
+    color: #ffd700;
+    /* Gold text */
+    padding: 6px 12px;
+    border-radius: 8px;
+    font-size: 0.8rem;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    border: 1px solid rgba(255, 215, 0, 0.3);
+}
+
+.contact-widgets {
+    width: 100%;
+    margin-bottom: auto;
+}
+
+.widget {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    padding-top: 20px;
+    border-top: 1px solid #333;
+}
+
+.widget:first-child {
+    border-top: none;
+}
+
+.icon-box {
+    width: 40px;
+    height: 40px;
+    background-color: #2a2a2a;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 15px;
+    color: var(--text-primary);
+}
+
+.info {
+    display: flex;
+    flex-direction: column;
+}
+
+.label {
+    font-size: 0.7rem;
+    color: var(--text-secondary);
+    margin-bottom: 2px;
+}
+
+.value {
+    font-size: 0.9rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 150px;
+}
+
+.social-links {
+    display: flex;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.social-links a {
+    color: var(--text-secondary);
+    font-size: 1.1rem;
+    transition: color 0.3s;
+}
+
+.social-links a:hover {
+    color: var(--text-primary);
+}
+
+
+/* Main Content Styles */
+.main-content {
+    flex: 1;
+    background-color: var(--card-dark);
+    border-radius: 20px;
+    padding: 20px 40px 40px 40px;
+    /* Reduced top padding for alignment */
+    position: relative;
+    overflow-y: auto;
+    /* For smooth scrolling */
+}
+
+.navbar {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: #2a2a2a;
+    /* Lighter background for the tab */
+    border-bottom-left-radius: 20px;
+    border-top-right-radius: 20px;
+    /* Matches main container */
+    padding: 20px 40px;
+    z-index: 10;
+    /* Ensure it stays on top */
+}
+
+.navbar ul {
+    display: flex;
+    gap: 30px;
+}
+
+.navbar li {
+    color: var(--text-secondary);
+    cursor: pointer;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+.navbar li:hover,
+.navbar li.active {
+    color: var(--accent-blue);
+}
+
+.section {
+    margin-bottom: 60px;
+    /* margin-top: 40px; <-- Removed to allow alignment with Navbar */
+}
+
+.section:first-of-type {
+    margin-top: 0;
+}
+
+.section-title {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.divider {
+    width: 40px;
+    height: 4px;
+    background-color: var(--accent-blue);
+    margin-bottom: 30px;
+    border-radius: 2px;
+}
+
+.bio p {
+    color: var(--text-secondary);
+    line-height: 1.8;
+    font-size: 1.05rem;
+}
+
+.highlight {
+    color: var(--accent-blue);
+    font-weight: 600;
+}
+
+/* Stats */
+.stats-grid {
+    display: flex;
+    gap: 60px;
+    margin-top: 30px;
+}
+
+.stat-item {
+    display: flex;
+    flex-direction: column;
+}
+
+.stat-number {
+    font-size: 3rem;
+    font-weight: 800;
+    line-height: 1;
+    margin-bottom: 10px;
+}
+
+.stat-label {
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+    letter-spacing: 1px;
+}
+
+.subtitle {
+    color: var(--text-secondary);
+    margin-top: 10px;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+    .app-container {
+        flex-direction: column;
+        padding: 10px;
+    }
+
+    .sidebar {
+        width: 100%;
+        position: relative;
+        top: 0;
+        height: auto;
+    }
+
+    .navbar {
+        position: relative;
+        border-radius: 20px;
+        margin-bottom: 20px;
+        width: 100%;
+        overflow-x: auto;
+    }
+}
+
+/* Projects Slider */
+.projects-grid {
+    display: flex;
+    overflow-x: auto;
+    gap: 10px;
+    margin-top: 40px;
+    padding-bottom: 30px;
+    scroll-snap-type: x mandatory;
+    scrollbar-color: var(--accent-blue) #2a2a2a;
+}
+
+.projects-grid::-webkit-scrollbar {
+    display: block;
+    height: 4px;
+    /* Thinner scrollbar */
+}
+
+/* Hide buttons */
+.projects-grid::-webkit-scrollbar-button {
+    display: none;
+    width: 0;
+    height: 0;
+}
+
+.projects-grid::-webkit-scrollbar-track {
+    background: #2a2a2a;
+    border-radius: 3px;
+    margin: 0 40%;
+    /* Shorter line (40% margins) */
+}
+
+.projects-grid::-webkit-scrollbar-thumb {
+    background-color: var(--accent-blue);
+    border-radius: 3px;
+}
+
+/* Custom Scrollbar Indicator if needed, but hiding it is cleaner for touch/trackpad */
+
+.project-card {
+    min-width: 280px;
+    /* Reduced min-width */
+    max-width: 280px;
+    /* Fixed width as requested */
+    background-color: transparent;
+    /* The image shows a dark card, maybe transparent with border? */
+    border: 1px solid #333;
+    border-radius: 20px;
+    padding: 25px 20px 20px 20px;
+    /* Add bottom padding to ensure phone isn't cut if card clips */
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    /* overflow: hidden;  <-- Remove this to allow phone to overhang or be fully seen if clipped by radius */
+    /* But we need radius.. let's use overflow visible and put radius on content or wrapper? */
+    overflow: visible;
+    scroll-snap-align: start;
+    transition: all 0.3s ease;
+}
+
+.project-card:hover {
+    border-color: #555;
+    transform: translateY(-5px);
+}
+
+.card-header,
+.project-desc,
+.card-actions {
+    width: 100%;
+}
+
+.project-desc {
+    min-height: 60px;
+    /* Fixed height for description alignment */
+    margin-bottom: 20px;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    line-clamp: 3;
+    /* Standard property */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.card-actions {
+    margin-bottom: 20px;
+    /* Spacer before phone */
+}
+
+/* Phone Mockup - Gold Style */
+.phone-mockup-container {
+    display: flex;
+    justify-content: center;
+    margin-top: auto;
+    /* Push to bottom of flex container */
+    margin-bottom: -10px;
+    /* Slight tuck if needed, or 0 */
+}
+
+.phone-mockup {
+    position: relative;
+    width: 220px;
+    /* Scaled down to fit in 280px card (280 - 40 padding = 240 space) */
+    height: 440px;
+    /* Maintain aspect ratio */
+    background-color: #000;
+    border-radius: 40px;
+    border: 3px solid #d4af37;
+    /* Thicker gold rim */
+    box-shadow:
+        0 0 0 4px #1a1a1a,
+        /* Inner bezel dark */
+        0 0 0 6px #d4af37;
+    /* Outer gold bezel */
+    overflow: hidden;
+    flex-shrink: 0;
+    /* Prevent shrinking */
+}
+
+/* Volume Buttons (Left Side) */
+.phone-mockup::before {
+    content: '';
+    position: absolute;
+    top: 100px;
+    left: -4px;
+    /* Push out of bezel */
+    width: 4px;
+    height: 25px;
+    background: #d4af37;
+    border-radius: 4px 0 0 4px;
+    box-shadow: 0 50px 0 #d4af37;
+    /* Second volume button */
+}
+
+/* Power Button (Right Side) */
+.phone-mockup::after {
+    content: '';
+    position: absolute;
+    top: 130px;
+    right: -4px;
+    width: 4px;
+    height: 35px;
+    background: #d4af37;
+    border-radius: 0 4px 4px 0;
+}
+
+/* High fidelity notch */
+.phone-notch {
+    position: absolute;
+    top: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90px;
+    height: 25px;
+    background-color: #000;
+    border-radius: 12px;
+    z-index: 20;
+}
+
+.project-icon-wrapper {
+    width: 50px;
+    height: 50px;
+    border-radius: 12px;
+    padding: 0;
+    /* Remove padding to let icon fill if needed */
+    flex-shrink: 0;
+    overflow: hidden;
+    /* rounded corners for image */
+    background-color: transparent;
+}
+
+.project-icon {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* or contain, depending on image */
+    border-radius: 12px;
+}
+
+.phone-screen {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 40px;
+    /* Match phone curvature */
+}
+
+
+/* Strategic Implementation Pathway */
+.strategy-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 30px;
+}
+
+.strategy-card {
+    background-color: #1a1a1a;
+    border-radius: 20px;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    border: 1px solid #333;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.strategy-card:hover {
+    transform: translateY(-5px);
+    background-color: #222;
+    border-color: #555;
+}
+
+.strategy-icon {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    background-color: rgba(255, 255, 255, 0.05);
+    padding: 10px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.strategy-title {
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-bottom: 15px;
+    color: var(--text-primary);
+}
+
+.strategy-desc {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+/* CTA Section */
+.cta-section {
+    margin-top: 60px;
+    padding: 60px 40px;
+    background: linear-gradient(135deg, #1a1a1a 0%, #0d0d0d 100%);
+    border-radius: 30px;
+    text-align: center;
+    border: 1px solid #333;
+    position: relative;
+    overflow: hidden;
+}
+
+.cta-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--accent-gold), transparent);
+    opacity: 0.5;
+}
+
+.cta-title {
+    font-size: 2rem;
+    color: #fff;
+    margin-bottom: 15px;
+    font-weight: 700;
+}
+
+.cta-text {
+    color: var(--text-secondary);
+    margin-bottom: 30px;
+    font-size: 1.1rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.cta-button {
+    display: inline-block;
+    background-color: var(--accent-gold);
+    color: #000;
+    padding: 15px 35px;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 1.1rem;
+    text-decoration: none;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.cta-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(212, 175, 55, 0.3);
+}
+
+/* =========================================
+   Expertise Section (Tree Layout)
+   ========================================= */
+
+.expertise-content {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    margin-top: 30px;
+}
+
+.category-header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+.category-icon {
+    font-size: 1.5rem;
+    color: var(--accent-blue);
+    background: rgba(52, 152, 219, 0.1);
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.category-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #fff;
+}
+
+.tech-tree {
+    position: relative;
+    padding-left: 19px;
+    /* Align with dot center */
+    margin-left: 20px;
+    border-left: 2px solid #333;
+    /* The main vertical line */
+}
+
+.tree-node {
+    position: relative;
+    padding-left: 30px;
+    margin-bottom: 40px;
+}
+
+.tree-node:last-child {
+    margin-bottom: 0;
+}
+
+.node-connector {
+    position: absolute;
+    left: -26px;
+    /* Adjust to center on the border-left of parent */
+    top: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.dot {
+    width: 12px;
+    height: 12px;
+    background-color: var(--accent-blue);
+    border-radius: 50%;
+    box-shadow: 0 0 0 4px var(--card-dark);
+    /* Creates "gap" effect from line */
+    z-index: 2;
+}
+
+/* Resume Timeline */
+.experience-header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 40px;
+}
+
+.timeline {
+    position: relative;
+    margin-left: 10px;
+    border-left: 2px solid #333;
+    padding-left: 30px;
+}
+
+.timeline::before {
+    display: none;
+    /* Using border-left instead */
+}
+
+.timeline-item {
+    position: relative;
+    padding-left: 30px;
+    margin-bottom: 40px;
+}
+
+.timeline-dot {
+    position: absolute;
+    left: -37px;
+    /* -30px padding + -7px center align (2px border + 12px width / 2) */
+    top: 5px;
+    width: 12px;
+    height: 12px;
+    background-color: var(--accent-blue);
+    border-radius: 50%;
+    box-shadow: 0 0 0 4px rgba(52, 152, 219, 0.1);
+}
+
+.timeline-title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 5px;
+}
+
+.timeline-company {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    margin-bottom: 5px;
+}
+
+.timeline-date {
+    color: var(--accent-blue);
+    font-size: 0.85rem;
+    margin-bottom: 10px;
+    font-weight: 500;
+}
+
+.timeline-description {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+/* Node Title */
+.node-title {
+    font-size: 1.1rem;
+    color: #e0e0e0;
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+/* Skills Grid */
+.skills-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.skill-chip {
+    background-color: #1f1f1f;
+    border: 1px solid #333;
+    padding: 8px 16px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: transform 0.2s, background-color 0.2s;
+}
+
+.skill-chip:hover {
+    transform: translateY(-2px);
+    background-color: #2a2a2a;
+    border-color: #555;
+}
+
+.skill-icon {
+    display: flex;
+    align-items: center;
+    font-size: 1.2rem;
+}
+
+.skill-name {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    font-weight: 500;
+}
+
+/* =========================================
+   Skills Section
+   ========================================= */
+
+.skills-section {
+    margin-top: 60px;
+    padding-top: 40px;
+    border-top: 1px solid #333;
+}
+
+.skills-title {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 30px;
+}
+
+.skills-container {
+    background-color: #1a1a1a;
+    border: 1px solid #333;
+    border-radius: 20px;
+    padding: 30px;
+}
+
+.skill-item {
+    margin-bottom: 25px;
+}
+
+.skill-item:last-child {
+    margin-bottom: 0;
+}
+
+.skill-info {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.skill-name-bar {
+    font-size: 0.95rem;
+    color: #fff;
+    font-weight: 500;
+}
+
+.skill-percentage {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+}
+
+.skill-bar-track {
+    width: 100%;
+    height: 8px;
+    background-color: #2a2a2a;
+    border-radius: 4px;
+    overflow: hidden;
+    position: relative;
+}
+
+.skill-bar-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--accent-blue) 0%, #5dade2 100%);
+    border-radius: 4px;
+    transition: width 1s ease-out;
+    position: relative;
+}
+
+.skill-bar-fill::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(90deg,
+            transparent 0%,
+            rgba(255, 255, 255, 0.1) 50%,
+            transparent 100%);
+}
+
+/* =========================================
+   Contact Page Styles
+   ========================================= */
+
+.contact-page {
+    padding-bottom: 40px;
+}
+
+.contact-intro {
+    color: var(--text-secondary);
+    font-size: 1.05rem;
+    line-height: 1.6;
+    margin-bottom: 40px;
+}
+
+.contact-content {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+/* Contact Info Cards */
+.contact-info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.contact-info-card {
+    background-color: #1a1a1a;
+    border: 1px solid #333;
+    border-radius: 16px;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    transition: transform 0.2s, border-color 0.2s;
+}
+
+.contact-info-card:hover {
+    transform: translateY(-3px);
+    border-color: #444;
+}
+
+.contact-icon-box {
+    width: 45px;
+    height: 45px;
+    background-color: rgba(52, 152, 219, 0.1);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--accent-blue);
+    flex-shrink: 0;
+}
+
+.contact-info-details {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    overflow: hidden;
+}
+
+.contact-info-label {
+    font-size: 0.75rem;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.contact-info-value {
+    font-size: 0.95rem;
+    color: #fff;
+    text-decoration: none;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.contact-info-value:hover {
+    color: var(--accent-blue);
+}
+
+/* Contact Form Section */
+.contact-section {
+    background-color: #1a1a1a;
+    border: 1px solid #333;
+    border-radius: 20px;
+    padding: 30px;
+}
+
+.contact-title {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 25px;
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+@media (max-width: 600px) {
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-input,
+.form-textarea {
+    background-color: #0d0d0d;
+    border: 1px solid #333;
+    border-radius: 12px;
+    padding: 16px 20px;
+    color: #fff;
+    font-size: 0.95rem;
+    font-family: inherit;
+    transition: border-color 0.2s, box-shadow 0.2s;
+    outline: none;
+}
+
+.form-input::placeholder,
+.form-textarea::placeholder {
+    color: #666;
+}
+
+.form-input:focus,
+.form-textarea:focus {
+    border-color: var(--accent-blue);
+    box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.1);
+}
+
+.form-input:hover,
+.form-textarea:hover {
+    border-color: #444;
+}
+
+.form-textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+.form-actions {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 10px;
+}
+
+.send-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: transparent;
+    border: none;
+    color: var(--accent-blue);
+    font-size: 0.95rem;
+    font-weight: 500;
+    cursor: pointer;
+    padding: 12px 0;
+    transition: transform 0.2s, color 0.2s;
+}
+
+.send-button:hover {
+    transform: translateX(5px);
+    color: #5dade2;
+}
+
+.send-button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.send-button.submitting {
+    pointer-events: none;
+}
+
+.send-icon {
+    font-size: 1rem;
+    transition: transform 0.3s;
+}
+
+.send-button:hover .send-icon {
+    transform: translateX(3px) translateY(-3px);
+}
+
+/* Form Messages */
+.form-message {
+    padding: 12px 16px;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    text-align: center;
+}
+
+.form-message.success {
+    background-color: rgba(46, 204, 113, 0.1);
+    color: #2ecc71;
+    border: 1px solid rgba(46, 204, 113, 0.3);
+}
+
+.form-message.error {
+    background-color: rgba(231, 76, 60, 0.1);
+    color: #e74c3c;
+    border: 1px solid rgba(231, 76, 60, 0.3);
+}

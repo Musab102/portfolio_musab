@@ -1,0 +1,25 @@
+{
+    "name": "Musab bin Mukhtar - Flutter Developer & Mobile Architect",
+    "short_name": "Musab Portfolio",
+    "description": "Professional Flutter Developer with 3+ years of experience building scalable mobile apps. Expert in Dart, Firebase, Clean Architecture.",
+    "start_url": "/",
+    "display": "standalone",
+    "background_color": "#0D0D0D",
+    "theme_color": "#0D0D0D",
+    "orientation": "portrait-primary",
+    "scope": "/",
+    "lang": "en",
+    "categories": [
+        "portfolio",
+        "developer",
+        "technology"
+    ],
+    "icons": [
+        {
+            "src": "/vite.svg",
+            "sizes": "any",
+            "type": "image/svg+xml",
+            "purpose": "any maskable"
+        }
+    ]
+}
