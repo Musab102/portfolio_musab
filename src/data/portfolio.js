@@ -16,6 +16,7 @@ import {
 import { VscVscode } from 'react-icons/vsc';
 import { MdNotificationsActive, MdShoppingCart, MdLogin, MdPayment, MdStorage, MdBugReport, MdCheckCircle, MdCloudUpload, MdUpdate, MdRateReview } from 'react-icons/md';
 import pdfPrinterImg from '../assets/images/pdf_printer_app.jpeg';
+import musabAvatar from '../assets/images/musab.jpeg';
 
 export const portfolioData = {
     // Personal Information
@@ -24,7 +25,7 @@ export const portfolioData = {
         role: "Flutter Developer",
         email: "musabbinmukhtar123@gmail.com",
         location: "Islamabad, Pakistan",
-        avatar: "https://ui-avatars.com/api/?name=Musab+Bin+Mukhtar&background=random"
+        avatar: musabAvatar
     },
 
     // SEO Configuration

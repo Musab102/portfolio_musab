@@ -1,6 +1,7 @@
 import React from 'react';
 import { portfolioData } from '../../data/portfolio';
 import ProjectCard from './ProjectCard';
+import ProjectsSlider from './ProjectsSlider';
 import pdfPrinterImg from '../../assets/images/pdf_printer_app.jpeg';
 
 
@@ -45,11 +46,7 @@ const About = () => {
                 <h2 className="section-title">Here's Some Of Our Work</h2>
                 <p className="subtitle">Don't just take my word for it — here's a look at what I've built 🚀</p>
 
-                <div className="projects-grid">
-                    {projects.map((project, index) => (
-                        <ProjectCard key={index} project={project} />
-                    ))}
-                </div>
+                <ProjectsSlider />
             </section>
 
             <StrategySection />
