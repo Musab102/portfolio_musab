@@ -8,6 +8,8 @@ import Layout from './components/Layout';
 const AboutPage = lazy(() => import('./pages/About'));
 const ExpertisePage = lazy(() => import('./pages/Expertise'));
 const ResumePage = lazy(() => import('./pages/Resume'));
+const PortfolioPage = lazy(() => import('./pages/Portfolio'));
+const ProjectDetailsPage = lazy(() => import('./pages/ProjectDetails'));
 const ContactPage = lazy(() => import('./pages/Contact'));
 
 // Loading component
@@ -62,6 +64,8 @@ function App() {
                 <Route index element={<AboutPage />} />
                 <Route path="expertise" element={<ExpertisePage />} />
                 <Route path="resume" element={<ResumePage />} />
+                <Route path="portfolio" element={<PortfolioPage />} />
+                <Route path="portfolio/:id" element={<ProjectDetailsPage />} />
                 <Route path="contact" element={<ContactPage />} />
               </Route>
             </Routes>

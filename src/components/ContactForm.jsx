@@ -21,23 +21,32 @@ const ContactForm = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         setIsSubmitting(true);
+        setSubmitStatus(null);
 
-        // Simulate form submission (replace with actual API call)
         try {
-            // You can integrate with EmailJS, Formspree, or your own backend
-            await new Promise(resolve => setTimeout(resolve, 1000));
+            const formDataObj = new FormData();
+            formDataObj.append("name", formData.fullName);
+            formDataObj.append("email", formData.email);
+            formDataObj.append("message", formData.message);
+            formDataObj.append("_subject", `New Portfolio Message from ${formData.fullName}`);
+            formDataObj.append("_captcha", "false"); // Disables captcha for smoother UX
 
-            // For now, open mailto link as fallback
-            const mailtoLink = `mailto:musabbinmukhtar123@gmail.com?subject=Contact from ${formData.fullName}&body=${encodeURIComponent(formData.message)}%0A%0AFrom: ${formData.fullName}%0AEmail: ${formData.email}`;
-            window.location.href = mailtoLink;
+            const response = await fetch("https://formsubmit.co/ajax/1605c88f7825ca80587983d62a4373f5", {
+                method: "POST",
+                body: formDataObj
+            });
 
-            setSubmitStatus('success');
-            setFormData({ fullName: '', email: '', message: '' });
+            if (response.ok) {
+                setSubmitStatus('success');
+                setFormData({ fullName: '', email: '', message: '' });
+            } else {
+                setSubmitStatus('error');
+            }
         } catch (error) {
             setSubmitStatus('error');
         } finally {
             setIsSubmitting(false);
-            setTimeout(() => setSubmitStatus(null), 3000);
+            setTimeout(() => setSubmitStatus(null), 5000);
         }
     };
 

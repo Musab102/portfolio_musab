@@ -1,5 +1,6 @@
 import React from 'react';
 import { portfolioData } from '../data/portfolio';
+import { FaMapMarkerAlt } from 'react-icons/fa';
 
 const Sidebar = () => {
     const { personal, socials } = portfolioData;
@@ -13,7 +14,7 @@ const Sidebar = () => {
                     </div>
                     <span className="online-status"></span>
                 </div>
-                <h2 className="profile-name">{personal.name}</h2>
+                <h2 className="profile-name">Musab <br />Bin Mukhtar</h2>
                 <div className="profile-role">{personal.role}</div>
             </div>
 
@@ -27,11 +28,19 @@ const Sidebar = () => {
                     </div>
                     <div className="info">
                         <span className="label">EMAIL</span>
-                        <span className="value">{personal.email}</span>
+                        <a
+                            href={`https://mail.google.com/mail/?view=cm&fs=1&to=${personal.email}`}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="value"
+                            style={{ textDecoration: 'none', color: 'inherit' }}
+                        >
+                            {personal.email}
+                        </a>
                     </div>
                 </div>
                 <div className="widget">
-                    <div className="icon-box"><span style={{ fontSize: '1.2em' }}>📍</span></div>
+                    <div className="icon-box"><FaMapMarkerAlt /></div>
                     <div className="info">
                         <span className="label">LOCATION</span>
                         <span className="value">{personal.location}</span>
@@ -43,7 +52,13 @@ const Sidebar = () => {
                 {socials.map((social, index) => {
                     const Icon = social.icon;
                     return (
-                        <a key={index} href={social.url} aria-label={social.label}>
+                        <a
+                            key={index}
+                            href={social.url}
+                            aria-label={social.label}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
                             <Icon />
                         </a>
                     );

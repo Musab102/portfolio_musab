@@ -1,3 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 :root {
   --bg-dark: #0f0f0f;
   --card-dark: #1e1e1e;
@@ -13,14 +18,14 @@
   box-sizing: border-box;
 }
 
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 
 body {
-  font-family: 'Poppins', sans-serif;
+  font-family: 'Poppins';
   background-color: var(--bg-dark);
   color: var(--text-primary);
   line-height: 1.5;
-  font-weight: 400;
+  font-weight: 300;
+  /* Global thin text */
 }
 
 a {
@@ -30,4 +35,27 @@ a {
 
 ul {
   list-style: none;
+}
+
+.profile-name {
+  font-size: 1.5rem;
+  font-weight: 300;
+  /* Thin profile name */
+  margin-bottom: 10px;
+}
+
+.navbar li {
+  color: var(--text-secondary);
+  cursor: pointer;
+  font-weight: 300;
+  /* Thin nav items */
+  transition: color 0.3s;
+}
+
+.section-title {
+  font-size: 1.35rem;
+  /* Reduced from 1.75rem */
+  font-weight: 300;
+  /* Thin heading */
+  margin-bottom: 10px;
 }

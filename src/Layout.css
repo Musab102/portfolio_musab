@@ -87,7 +87,7 @@
 
 .profile-name {
     font-size: 1.5rem;
-    font-weight: 600;
+    font-weight: 300;
     margin-bottom: 10px;
 }
 
@@ -184,7 +184,7 @@
     align-items: center;
     justify-content: center;
     margin-right: 15px;
-    color: var(--text-primary);
+    color: var(--accent-blue);
 }
 
 .info {
@@ -254,15 +254,15 @@
     gap: 30px;
 }
 
-.navbar li {
+.navbar a {
     color: var(--text-secondary);
-    cursor: pointer;
-    font-weight: 500;
-    transition: color 0.3s;
+    font-weight: 300;
+    transition: color 0.3s ease;
+    text-decoration: none;
 }
 
-.navbar li:hover,
-.navbar li.active {
+.navbar a:hover,
+.navbar a.active {
     color: var(--accent-blue);
 }
 
@@ -275,10 +275,26 @@
     margin-top: 0;
 }
 
-.section-title {
-    font-size: 1.75rem;
+/* Main Page Headings (H1) */
+h1.section-title {
+    font-size: 3.5rem;
+    font-weight: 300;
+    /* Thin */
+    line-height: 1.2;
+    margin-bottom: 20px;
+}
+
+/* Inner Section Headings (H2) */
+h2.section-title {
+    font-size: 1.5rem;
     font-weight: 700;
-    margin-bottom: 10px;
+    /* Thick/Bold */
+    margin-bottom: 15px;
+}
+
+/* Fallback for other section titles if any */
+.section-title {
+    margin-bottom: 15px;
 }
 
 .divider {
@@ -314,7 +330,7 @@
 
 .stat-number {
     font-size: 3rem;
-    font-weight: 800;
+    font-weight: 300;
     line-height: 1;
     margin-bottom: 10px;
 }
@@ -391,13 +407,19 @@
 
 /* Custom Scrollbar Indicator if needed, but hiding it is cleaner for touch/trackpad */
 
+.project-slide {
+    height: auto;
+    display: flex;
+    /* Ensure container stretches child */
+}
+
 .project-card {
     min-width: 280px;
-    /* Reduced min-width */
     max-width: 280px;
-    /* Fixed width as requested */
-    background-color: transparent;
-    /* The image shows a dark card, maybe transparent with border? */
+    height: 100%;
+    /* Stretch to fill slide height */
+    background-color: #1a1a1a;
+    /* Solid dark background matching reference */
     border: 1px solid #333;
     border-radius: 20px;
     padding: 25px 20px 20px 20px;
@@ -407,7 +429,7 @@
     position: relative;
     /* overflow: hidden;  <-- Remove this to allow phone to overhang or be fully seen if clipped by radius */
     /* But we need radius.. let's use overflow visible and put radius on content or wrapper? */
-    overflow: visible;
+    overflow: hidden;
     scroll-snap-align: start;
     transition: all 0.3s ease;
 }
@@ -441,49 +463,51 @@
     /* Spacer before phone */
 }
 
-/* Phone Mockup - Gold Style */
+/* Phone Mockup - iPhone 14 Pro Style */
 .phone-mockup-container {
     display: flex;
     justify-content: center;
     margin-top: auto;
     /* Push to bottom of flex container */
     margin-bottom: -10px;
-    /* Slight tuck if needed, or 0 */
 }
 
 .phone-mockup {
     position: relative;
-    width: 220px;
-    /* Scaled down to fit in 280px card (280 - 40 padding = 240 space) */
-    height: 440px;
-    /* Maintain aspect ratio */
+    width: 230px;
+    /* Slightly wider for Pro ratio */
+    height: 460px;
     background-color: #000;
-    border-radius: 40px;
-    border: 3px solid #d4af37;
-    /* Thicker gold rim */
+    border-radius: 45px;
+    /* Higher radius for iPhone 14 Pro match */
+    border: 5px solid #3b3b3b;
+    /* Dark Grey/Deep Purple Frame */
     box-shadow:
-        0 0 0 4px #1a1a1a,
-        /* Inner bezel dark */
-        0 0 0 6px #d4af37;
-    /* Outer gold bezel */
+        0 0 0 2px #000 inset,
+        /* Inner black bezel */
+        0 0 20px rgba(0, 0, 0, 0.5);
+    /* Drop shadow */
     overflow: hidden;
     flex-shrink: 0;
-    /* Prevent shrinking */
 }
 
-/* Volume Buttons (Left Side) */
+/* Volume Buttons & Mute Switch (Left Side) */
 .phone-mockup::before {
     content: '';
     position: absolute;
-    top: 100px;
-    left: -4px;
-    /* Push out of bezel */
-    width: 4px;
-    height: 25px;
-    background: #d4af37;
+    top: 70px;
+    /* Shifted up to fit mute switch */
+    left: -7px;
+    width: 3px;
+    height: 12px;
+    /* Mute switch height */
+    background: #3b3b3b;
     border-radius: 4px 0 0 4px;
-    box-shadow: 0 50px 0 #d4af37;
-    /* Second volume button */
+    box-shadow:
+        0 40px 0 #3b3b3b,
+        /* Volume Up */
+        0 90px 0 #3b3b3b;
+    /* Volume Down */
 }
 
 /* Power Button (Right Side) */
@@ -491,24 +515,40 @@
     content: '';
     position: absolute;
     top: 130px;
-    right: -4px;
-    width: 4px;
+    right: -7px;
+    width: 3px;
     height: 35px;
-    background: #d4af37;
+    background: #3b3b3b;
     border-radius: 0 4px 4px 0;
 }
 
-/* High fidelity notch */
+/* Dynamic Island */
 .phone-notch {
     position: absolute;
-    top: 15px;
+    top: 10px;
     left: 50%;
     transform: translateX(-50%);
-    width: 90px;
-    height: 25px;
+    width: 80px;
+    height: 22px;
     background-color: #000;
-    border-radius: 12px;
+    border-radius: 20px;
     z-index: 20;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    /* Align camera right as in reference */
+    padding-right: 12px;
+}
+
+/* Front Camera Circle */
+.phone-notch::after {
+    content: '';
+    width: 6px;
+    height: 6px;
+    background: radial-gradient(circle, #1a1a2e 0%, #000 70%);
+    border-radius: 50%;
+    border: 1px solid #222;
+    box-shadow: 0 0 2px rgba(255, 255, 255, 0.1);
 }
 
 .project-icon-wrapper {
@@ -616,7 +656,7 @@
     font-size: 1.75rem;
     color: #fff;
     margin-bottom: 15px;
-    font-weight: 700;
+    font-weight: 300;
 }
 
 .cta-text {
@@ -677,7 +717,7 @@
 
 .category-title {
     font-size: 1.3rem;
-    font-weight: 600;
+    font-weight: 700;
     color: #fff;
 }
 
@@ -1125,4 +1165,426 @@
     background-color: rgba(231, 76, 60, 0.1);
     color: #e74c3c;
     border: 1px solid rgba(231, 76, 60, 0.3);
+}
+
+/* =========================================
+   Portfolio Page Styles
+   ========================================= */
+
+.portfolio-section {
+    margin-top: 80px;
+}
+
+/* Filter Tabs */
+.filter-tabs {
+    display: flex;
+    gap: 0;
+    margin: 30px 0 40px 0;
+    border-bottom: 1px solid #333;
+}
+
+.filter-tab {
+    background: transparent;
+    border: none;
+    color: var(--text-secondary);
+    padding: 12px 24px;
+    font-size: 0.95rem;
+    font-weight: 400;
+    cursor: pointer;
+    transition: color 0.3s ease, border-color 0.3s ease;
+    position: relative;
+    border-bottom: 2px solid transparent;
+    font-family: 'Poppins', sans-serif;
+}
+
+.filter-tab:hover {
+    color: var(--text-primary);
+}
+
+.filter-tab.active {
+    color: var(--accent-blue);
+    border-bottom-color: var(--accent-blue);
+}
+
+/* Portfolio Grid */
+.portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+
+/* Portfolio Card */
+.portfolio-card {
+    background: #fff;
+    border-radius: 20px;
+    padding: 40px 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+    min-height: 280px;
+    position: relative;
+    overflow: hidden;
+}
+
+.portfolio-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+/* Hover Overlay */
+.portfolio-card-hover-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 10;
+    border-radius: 20px;
+}
+
+.portfolio-card:hover .portfolio-card-hover-overlay {
+    opacity: 1;
+}
+
+.portfolio-card-eye-icon {
+    font-size: 3rem;
+    color: var(--accent-blue);
+    opacity: 0.9;
+}
+
+.portfolio-card-logo {
+    width: 80px;
+    height: 80px;
+    margin-bottom: 25px;
+    border-radius: 12px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #f5f5f5;
+}
+
+.portfolio-card-logo img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.portfolio-card-title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #2c3e50;
+    margin-bottom: 8px;
+    line-height: 1.4;
+}
+
+.portfolio-card-category {
+    font-size: 0.85rem;
+    color: #7f8c8d;
+    font-weight: 400;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+    .portfolio-grid {
+        grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+        gap: 25px;
+    }
+}
+
+@media (max-width: 768px) {
+    .portfolio-grid {
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        gap: 20px;
+    }
+
+    .filter-tabs {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .filter-tab {
+        white-space: nowrap;
+        padding: 10px 16px;
+        font-size: 0.9rem;
+    }
+
+    .portfolio-card {
+        padding: 30px 20px;
+        min-height: 240px;
+    }
+
+    .portfolio-card-logo {
+        width: 60px;
+        height: 60px;
+        margin-bottom: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .portfolio-grid {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+}
+
+/* =========================================
+   Project Details Page Styles
+   ========================================= */
+
+.project-details-section {
+    margin-top: 60px;
+}
+
+/* Back Button */
+.back-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: transparent;
+    border: none;
+    color: var(--accent-blue);
+    font-size: 0.95rem;
+    font-weight: 400;
+    cursor: pointer;
+    padding: 8px 0;
+    margin-bottom: 30px;
+    transition: gap 0.3s ease;
+    font-family: 'Poppins', sans-serif;
+}
+
+.back-button:hover {
+    gap: 12px;
+}
+
+/* Project Header */
+.project-header-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 40px;
+}
+
+.project-description {
+    color: var(--text-secondary);
+    line-height: 1.7;
+    font-size: 1rem;
+    max-width: 700px;
+    margin-top: 20px;
+}
+
+/* Project Tabs */
+.project-tabs {
+    display: flex;
+    gap: 0;
+    border-bottom: 1px solid #333;
+}
+
+.project-tab {
+    background: transparent;
+    border: none;
+    color: var(--text-secondary);
+    padding: 12px 24px;
+    font-size: 0.95rem;
+    font-weight: 400;
+    cursor: pointer;
+    transition: color 0.3s ease, border-color 0.3s ease;
+    position: relative;
+    border-bottom: 2px solid transparent;
+    font-family: 'Poppins', sans-serif;
+}
+
+.project-tab.active {
+    color: var(--accent-blue);
+    border-bottom-color: var(--accent-blue);
+}
+
+/* Project Hero Image */
+.project-hero {
+    width: 100%;
+    max-width: 400px;
+    margin: 40px auto;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+}
+
+.project-hero img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Project Sections */
+.project-section {
+    margin-top: 60px;
+}
+
+.project-section-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 30px;
+    color: var(--text-primary);
+}
+
+/* Tech Stack Grid */
+.tech-stack-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 20px;
+}
+
+.tech-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: #2a2a2a;
+    padding: 10px 16px;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    color: var(--text-primary);
+    transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.tech-badge:hover {
+    transform: translateY(-2px);
+    background: #333;
+}
+
+.tech-badge svg {
+    font-size: 1.2rem;
+}
+
+/* Features Grid */
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 30px;
+    margin-top: 30px;
+}
+
+.feature-card {
+    background: #2a2a2a;
+    padding: 30px;
+    border-radius: 20px;
+    border: 1px solid #333;
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.feature-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--accent-blue);
+}
+
+.feature-icon {
+    width: 50px;
+    height: 50px;
+    background: rgba(52, 152, 219, 0.1);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    color: var(--accent-blue);
+    font-size: 1.5rem;
+}
+
+.feature-title {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 15px;
+}
+
+.feature-list {
+    list-style: none;
+    padding: 0;
+}
+
+.feature-list li {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    line-height: 1.8;
+    padding-left: 20px;
+    position: relative;
+    margin-bottom: 10px;
+}
+
+.feature-list li::before {
+    content: "•";
+    position: absolute;
+    left: 0;
+    color: var(--accent-blue);
+    font-weight: bold;
+}
+
+/* Highlights Container */
+.highlights-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+    margin-top: 30px;
+}
+
+.highlight-item {
+    position: relative;
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+.highlight-item img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.highlight-badge {
+    position: absolute;
+    bottom: 15px;
+    left: 15px;
+    background: rgba(0, 0, 0, 0.8);
+    color: #fff;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 500;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+    .project-header-top {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .project-tabs {
+        width: 100%;
+        overflow-x: auto;
+    }
+}
+
+@media (max-width: 768px) {
+    .features-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .tech-stack-grid {
+        gap: 10px;
+    }
+
+    .tech-badge {
+        font-size: 0.85rem;
+        padding: 8px 12px;
+    }
 }

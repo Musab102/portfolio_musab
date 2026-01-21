@@ -33,7 +33,12 @@ const Contact = () => {
                             </div>
                             <div className="contact-info-details">
                                 <span className="contact-info-label">Email</span>
-                                <a href={`mailto:${personal.email}`} className="contact-info-value">
+                                <a
+                                    href={`https://mail.google.com/mail/?view=cm&fs=1&to=${personal.email}`}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="contact-info-value"
+                                >
                                     {personal.email}
                                 </a>
                             </div>

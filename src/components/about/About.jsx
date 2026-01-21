@@ -30,7 +30,7 @@ const About = () => {
             </section>
 
             <section id="milestones" className="section">
-                <h2 className="section-title">🚀 Milestones & Achievements</h2>
+                <h2 className="section-title"> Milestones & Achievements</h2>
 
                 <div className="stats-grid">
                     {stats.map((stat, index) => (
@@ -44,7 +44,7 @@ const About = () => {
 
             <section id="portfolio" className="section">
                 <h2 className="section-title">Here's Some Of Our Work</h2>
-                <p className="subtitle">Don't just take my word for it — here's a look at what I've built 🚀</p>
+                <p className="subtitle">Don't just take my word for it — here's a look at what I've built </p>
 
                 <ProjectsSlider />
             </section>
