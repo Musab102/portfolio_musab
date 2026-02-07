@@ -1,5 +1,4 @@
-import React from 'react';
-import { FaEye } from 'react-icons/fa';
+import { FiEye } from 'react-icons/fi';
 import { useNavigate } from 'react-router-dom';
 
 const PortfolioCard = ({ project, index }) => {
@@ -12,7 +11,7 @@ const PortfolioCard = ({ project, index }) => {
     return (
         <div className="portfolio-card" onClick={handleClick}>
             <div className="portfolio-card-hover-overlay">
-                <FaEye className="portfolio-card-eye-icon" />
+                <FiEye className="portfolio-card-eye-icon" />
             </div>
             <div className="portfolio-card-logo">
                 <img src={project.icon} alt={`${project.title} logo`} />

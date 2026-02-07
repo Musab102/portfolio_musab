@@ -16,7 +16,18 @@ import {
 import { VscVscode } from 'react-icons/vsc';
 import { MdNotificationsActive, MdShoppingCart, MdLogin, MdPayment, MdStorage, MdBugReport, MdCheckCircle, MdCloudUpload, MdUpdate, MdRateReview } from 'react-icons/md';
 import pdfPrinterImg from '../assets/images/pdf_printer_app.jpeg';
+import pdfPrinterLogo from '../assets/images/pdf printer logo.jpeg';
+import jobSiteThumb from '../assets/images/jobsite_thumb.jpg';
+import jobSiteThumbnail from '../assets/images/tumbnail.jpeg';
 import musabAvatar from '../assets/images/musab.jpeg';
+import translationAppImg from '../assets/images/translationapp.jpeg';
+import translationAppLogo from '../assets/images/translate_app_logo.jpeg';
+import utilityAppImg from '../assets/images/utlity app.jpeg';
+import utilityLogo from '../assets/images/utlity logo.jpeg';
+import vinDecoderImg from '../assets/images/vindecoder app.jpeg';
+import vinDecoderLogo from '../assets/images/vin_decoder_logo.jpeg';
+import weatherAppLogo from '../assets/images/weather_app_logo.jpeg';
+import weatherAppImg from '../assets/images/weather_app.jpeg';
 
 export const portfolioData = {
     // Personal Information
@@ -53,7 +64,7 @@ export const portfolioData = {
     about: {
         title: "About Me",
         bio: [
-            "Flutter Developer with professional experience OF 1.5+ years in building scalable, production-ready mobile applications using Dart and Flutter. Skilled in clean MVVM architecture, State management, Firebase integration, Google AdMob integration, RESTful APIs, and deploying apps to the Google Play Store.",
+            "Flutter Developer with professional experience OF 2+ years in building scalable, production-ready mobile applications using Dart and Flutter. Skilled in clean MVVM architecture, State management, Firebase integration, Google AdMob integration, RESTful APIs, and deploying apps to the Google Play Store.",
             "I have worked on a wide range of projects, from simple apps to complex enterprise-level solutions. I am constantly amazed by the power and flexibility of Flutter, and I believe that it is the future of mobile app development."
         ],
         highlight: "Mobile & Web Application developer"
@@ -61,9 +72,9 @@ export const portfolioData = {
 
     // Stats
     stats: [
-        { number: "1.5+", label: "YEARS OF EXPERIENCE" },
+        { number: "2+", label: "YEARS OF EXPERIENCE" },
         { number: "10+", label: "PROJECTS COMPLETED" },
-        { number: "+7", label: "WORLDWIDE CLIENTS" }
+
     ],
 
     // Projects
@@ -72,8 +83,8 @@ export const portfolioData = {
             title: "JobSite",
             description: "A full-scale Flutter-based construction management application designed for real-time collaboration and project tracking. It features role-based access control (Super Admin, Admin, and User) and integrates Google Maps to monitor ongoing work locations, along with Gantt charts for timeline visualization.",
             category: "Mobile Applications",
-            icon: "https://play-lh.googleusercontent.com/6QAO101_8mN-C5xqTz8-6j3E1n8-w8g0_8j2/s180-rw",
-            screenshot: "https://via.placeholder.com/300x600/FF6F00/FFFFFF?text=JobSite+App",
+            icon: jobSiteThumb,
+            screenshot: jobSiteThumb,
             links: {},
             isInternal: true,
             techStack: [
@@ -113,7 +124,7 @@ export const portfolioData = {
             title: "PDF Printer App",
             description: "A professional PDF utility application that allows users to manage, scan, and edit documents on the go. Deployed in a production environment, it features Google AdMob integration for monetization and supports over 10 languages for global reach.",
             category: "Mobile Applications",
-            icon: "https://play-lh.googleusercontent.com/8QAO101_8mN-C5xqTz8-6j3E1n8-w8g0_8j2/s180-rw",
+            icon: pdfPrinterLogo,
             screenshot: pdfPrinterImg,
             links: { playStore: "#" },
             isInternal: false,
@@ -153,8 +164,8 @@ export const portfolioData = {
             title: "All-in-One Utility App",
             description: "A comprehensive multi-tool application that leverages native device features to provide a wide array of utilities. From document scanning to real-time sensors like compass and sound meters, it serves as a Swiss-army knife for mobile users.",
             category: "Mobile Applications",
-            icon: "https://play-lh.googleusercontent.com/9QAO101_8mN-C5xqTz8-6j3E1n8-w8g0_8j2/s180-rw",
-            screenshot: "https://via.placeholder.com/300x600/4CAF50/FFFFFF?text=Utility+App",
+            icon: utilityLogo,
+            screenshot: utilityAppImg,
             links: {},
             isInternal: true,
             techStack: [
@@ -194,8 +205,8 @@ export const portfolioData = {
             title: "VIN Decoder App",
             description: "An essential tool for vehicle professionals and buyers, providing detailed vehicle specifications by decoding VIN (Vehicle Identification Number). It integrates REST APIs, QR scanning, and local persistence for a robust user experience.",
             category: "Mobile Applications",
-            icon: "https://play-lh.googleusercontent.com/7QAO101_8mN-C5xqTz8-6j3E1n8-w8g0_8j2/s180-rw",
-            screenshot: "https://via.placeholder.com/300x600/2196F3/FFFFFF?text=VIN+Decoder",
+            icon: vinDecoderLogo,
+            screenshot: vinDecoderImg,
             links: {},
             isInternal: true,
             techStack: [
@@ -234,8 +245,8 @@ export const portfolioData = {
             title: "Weather App",
             description: "A highly visual weather application providing real-time forecasts and air quality metrics. It uses dynamic UI theming, automatically adjusting colors and visuals based on current local conditions and sun positioning.",
             category: "Mobile Applications",
-            icon: "https://play-lh.googleusercontent.com/6QAO101_8mN-C5xqTz8-6j3E1n8-w8g0_8j2/s180-rw",
-            screenshot: "https://via.placeholder.com/300x600/03A9F4/FFFFFF?text=Weather+App",
+            icon: weatherAppLogo,
+            screenshot: weatherAppImg,
             links: {},
             isInternal: true,
             techStack: [
@@ -266,6 +277,69 @@ export const portfolioData = {
                         "Clean, scalable codebase using BLoC & MVVM patterns",
                         "Optimized for high-performance and low data usage",
                         "Responsive design perfectly tailored for mobile displays"
+                    ]
+                }
+            ]
+        },
+        {
+            title: "Smart Multi-Platform Translation App",
+            description: "A production-ready Flutter translation application with Clean Architecture, featuring text, voice, camera, and document translation. Integrates Firebase services, Google AdMob monetization, and Remote Config. Built with BLoC/Cubit state management and supports Android, iOS, Web, Windows, macOS, and Linux.",
+            category: "Mobile Applications",
+            icon: translationAppLogo,
+            screenshot: translationAppImg,
+            links: {},
+            isInternal: true,
+            techStack: [
+                { name: "Flutter", icon: SiFlutter, color: "#02569B" },
+                { name: "Dart", icon: SiDart, color: "#0175C2" },
+                { name: "BLoC/Cubit", icon: FaCode, color: "#40C4FF" },
+                { name: "Firebase", icon: SiFirebase, color: "#FFCA28" },
+                { name: "AdMob", icon: FaCode, color: "#EA4335" },
+                { name: "Clean Architecture", icon: FaCode, color: "#7C4DFF" }
+            ],
+            features: [
+                {
+                    title: "Multi-Mode Translation",
+                    icon: FaSearch,
+                    items: [
+                        "Text Translation: Real-time translation with copy/paste/share",
+                        "Voice Translation: Speech-to-text with multi-language support",
+                        "Camera Translation: OCR-based text extraction from images",
+                        "Document Translation: Upload & translate PDF and text files",
+                        "Conversation Mode: Two-way live communication translation"
+                    ]
+                },
+                {
+                    title: "Architecture & Tech Stack",
+                    icon: FaLaptopCode,
+                    items: [
+                        "Clean Architecture: Data, Domain, and Presentation layers",
+                        "BLoC/Cubit State Management with dependency injection",
+                        "Firebase Integration: Core, Remote Config, Analytics",
+                        "Modular feature-based structure following SOLID principles",
+                        "Cross-platform: Android, iOS, Web, Windows, macOS, Linux"
+                    ]
+                },
+                {
+                    title: "Google AdMob Integration",
+                    icon: FaRocket,
+                    items: [
+                        "Professional monetization with Adaptive Banner, Interstitial, Native, and App Open Ads",
+                        "GDPR Consent Management with user privacy controls",
+                        "Remote Config-based ad control and feature flagging",
+                        "Custom ad helper classes with lifecycle-aware management",
+                        "Production-level error handling and ad caching"
+                    ]
+                },
+                {
+                    title: "Advanced Features",
+                    icon: FaPlug,
+                    items: [
+                        "Firebase Remote Config for dynamic feature control",
+                        "Theme Management: Light/Dark mode with local storage",
+                        "Translation history with favorites and search",
+                        "50+ language support with offline capabilities",
+                        "Privacy Policy, Settings, and About pages"
                     ]
                 }
             ]

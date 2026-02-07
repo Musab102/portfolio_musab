@@ -1,9 +1,16 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import { FaApple, FaGooglePlay, FaGlobe, FaLock } from 'react-icons/fa';
 
-const ProjectCard = ({ project }) => {
+const ProjectCard = ({ project, projectId }) => {
+    const navigate = useNavigate();
+
+    const handleCardClick = () => {
+        navigate(`/portfolio/${projectId}`);
+    };
+
     return (
-        <div className="project-card">
+        <div className="project-card" onClick={handleCardClick} style={{ cursor: 'pointer' }}>
             <div className="card-header">
                 <div className="project-icon-wrapper">
                     <img src={project.icon} alt={project.title} className="project-icon" />
@@ -17,7 +24,7 @@ const ProjectCard = ({ project }) => {
                 {project.isInternal ? (
                     <span className="internal-badge"><FaLock /> Internal Use Only</span>
                 ) : (
-                    <div className="store-links">
+                    <div className="store-links" onClick={(e) => e.stopPropagation()}>
                         {project.links.appStore && <a href={project.links.appStore} style={{ color: '#007AFF' }}><FaApple /></a>}
                         {project.links.playStore && <a href={project.links.playStore} style={{ color: '#EA4335' }}><FaGooglePlay /></a>}
                         {project.links.web && <a href={project.links.web} style={{ color: '#fff' }}><FaGlobe /></a>}

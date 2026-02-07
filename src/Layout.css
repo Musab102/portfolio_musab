@@ -1242,12 +1242,13 @@ h2.section-title {
     left: 0;
     right: 0;
     bottom: 0;
-    background: rgba(0, 0, 0, 0.7);
+    background: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(8px);
     display: flex;
     align-items: center;
     justify-content: center;
     opacity: 0;
-    transition: opacity 0.3s ease;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     z-index: 10;
     border-radius: 20px;
 }
@@ -1257,9 +1258,19 @@ h2.section-title {
 }
 
 .portfolio-card-eye-icon {
-    font-size: 3rem;
-    color: var(--accent-blue);
-    opacity: 0.9;
+    font-size: 2.8rem;
+    color: #00f3ff;
+    background: transparent;
+    padding: 0;
+    border-radius: 0;
+    box-shadow: none;
+    filter: drop-shadow(0 0 5px #00f3ff) drop-shadow(0 0 15px rgba(0, 243, 255, 0.5));
+    transform: scale(0.8);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.portfolio-card:hover .portfolio-card-eye-icon {
+    transform: scale(1);
 }
 
 .portfolio-card-logo {
